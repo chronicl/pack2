@@ -10,6 +10,9 @@ repository = "https://github.com/chronicl/pack2"
 keywords = ["windows", "packet", "sniffing"]
 categories = ["network-programming"]
 
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+
 [dependencies]
 socket2 = {version = "0.4.4", features = ["all"]}
 thiserror = "1"
