@@ -3,6 +3,7 @@ name = "pack2"
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
+description = "windows ipv4 packet sniffing"
 
 [dependencies]
 socket2 = {version = "0.4.4", features = ["all"]}
