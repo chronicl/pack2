@@ -1,0 +1,21 @@
+[package]
+name = "pack2"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+socket2 = {version = "0.4.4", features = ["all"]}
+thiserror = "1"
+
+[dependencies.windows]
+version = "0.37.0"
+features = [
+    "alloc",
+    "Win32_Foundation",
+    "Win32_Networking_WinSock", 
+    "Win32_System_IO"
+]
+
+[dev-dependencies]
+etherparse = "0.10"
