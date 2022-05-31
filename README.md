@@ -1,5 +1,7 @@
 ## packet sniffing for windows
 
+[![API](https://docs.rs/pack2/badge.svg)](https://docs.rs/pack2)
+
 This crate provides one function `recv_all_socket` which creates a `socket2::Socket`
 that receives all incoming and outgoing ipv4 packets.
 
