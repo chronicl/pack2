@@ -1,4 +1,4 @@
-//! Provides a function [recv_all_socket] that creates a Socket that receives all incoming and outgoing ipv4 packets.
+//! Provides one function [recv_all_socket] which creates a [Socket](socket2::Socket) that receives all incoming and outgoing ipv4 packets.
 //!
 //! ## Example
 //! ```
@@ -10,7 +10,7 @@
 //!
 //! let mut buf = vec![0u8; 65535];
 //! loop {
-//!     // This is safe as described in the documentation of Socket::recv_from
+//!     // This is safe as described in the documentation of socket2::Socket::recv_from
 //!     let buf_maybe = unsafe { &mut *(&mut buf[..] as *mut [u8] as *mut [MaybeUninit<u8>]) };
 //!     let (read, addr) = socket.recv_from(buf_maybe)?;
 //!     println!("received {} bytes from {:?}", read, addr);
@@ -32,6 +32,7 @@ use windows::{
     },
 };
 
+/// Creates a [Socket](socket2::Socket) that receives all incoming and outgoing ipv4 packets.
 pub fn recv_all_socket() -> Result<Socket, SocketError> {
     type E = SocketError;
 
