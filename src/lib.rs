@@ -196,7 +196,7 @@ pub fn get_window_pids<S: AsRef<str>>(window_name: S) -> impl Iterator<Item = Pi
 }
 
 #[derive(Debug, Clone)]
-struct TcpTable(Vec<TcpConnection>);
+pub struct TcpTable(Vec<TcpConnection>);
 
 #[derive(Debug, Clone)]
 pub struct TcpConnection {
@@ -255,6 +255,10 @@ impl TcpTable {
             });
         }
         Ok(TcpTable(connections))
+    }
+
+    pub fn connections(&self) -> &Vec<TcpConnection> {
+        &self.0
     }
 
     pub fn connections_for_pid(&self, pid: Pid) -> impl Iterator<Item = &TcpConnection> {
