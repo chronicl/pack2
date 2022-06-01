@@ -1,12 +1,13 @@
 use etherparse::{SlicedPacket, TcpOptionElement, TcpOptionReadError};
-use pack2::recv_all_socket;
+use pack2::SocketExt;
+use socket2::Socket;
 use std::mem::MaybeUninit;
 
 // IMPORTANT:
 // This example needs to be run as administrator and to receive incoming packets
 // you need to allow the firewall rule which pops up upon starting the example.
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let socket = recv_all_socket()?;
+    let socket = Socket::new_recv_all(None, None)?;
 
     let mut buf = vec![0u8; 65535];
     loop {
